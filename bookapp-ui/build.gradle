@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+plugins {
+    id 'com.moowork.grunt' version '0.9'
+    id 'com.moowork.node' version '0.9'
+}
+
+apply plugin: 'java'
+
+jar.into('META-INF/resources') {
+    from('output')
+}
+
+node {
+    version = '0.12.2'
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+}
+
+installGrunt.dependsOn npmInstall
+grunt_default.dependsOn installGrunt
+build.dependsOn grunt_default
+

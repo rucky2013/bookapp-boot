@@ -1,0 +1,24 @@
+{
+  "author": "Roger Villars",
+  "name": "bookapp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rvillars/bookapp-client",
+  "licenses": {
+    "type": "Apache License",
+    "url": "https://raw.githubusercontent.com/rvillars/bookapp-client/master/LICENSE"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "",
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "^0.4.1",
+    "grunt-contrib-copy": "^0.4.1",
+    "grunt-contrib-jshint": "^0.4.3",
+    "grunt-contrib-watch": "^0.4.4",
+    "grunt-ngmin": "0.0.2",
+    "grunt-bower-install": "~1.6"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
+}

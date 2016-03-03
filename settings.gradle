@@ -1,0 +1,1 @@
+include 'bookapp-ui', 'bookapp-web';
