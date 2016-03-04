@@ -25,4 +25,5 @@ node {
 installGrunt.dependsOn npmInstall
 grunt_default.dependsOn installGrunt
 build.dependsOn grunt_default
+check.dependsOn grunt_default
 
