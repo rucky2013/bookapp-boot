@@ -26,25 +26,29 @@ export default class BookController {
     save() {
         var isNew = this.currentBook.id == null;
         if (isNew) {
-            this.currentBook = this.Book.save(this.currentBook);
             this.$http.get(this.currentBook.author).then(response => {
-                this.currentBook.author = response.data;
-                this.books.push(angular.copy(this.currentBook));
-                this.cancel();
+                let savedBook = this.Book.save(this.currentBook);
+                savedBook.$promise.then(() => {
+                    savedBook.author = response.data;
+                    this.books.push(savedBook);
+                    this.cancel();
+                });
             });
         } else {
-            this.currentBook = this.Book.update(this.currentBook);
             this.$http.get(this.currentBook.author).then(response => {
-                this.currentBook.author = response.data;
-                utils.replaceById(this.books, angular.copy(this.currentBook));
-                this.cancel();
+                let updatedBook = this.Book.update(this.currentBook);
+                updatedBook.$promise.then(() => {
+                    updatedBook.author = response.data;
+                    utils.replaceById(this.books, updatedBook);
+                    this.cancel();
+                });
             });
         }
     };
 
     edit(book) {
         this.currentBook = angular.copy(book);
-        this.currentBook.releasedate = new Date(this.currentBook.releasedate);
+        this.currentBook.releasedate = new Date(book.releasedate).toISOString();
         this.currentBook.author = utils.filterById(this.authors, book.author.id)._links.self.href;
     };
 

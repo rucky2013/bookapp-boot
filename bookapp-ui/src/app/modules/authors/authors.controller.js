@@ -21,13 +21,18 @@ export default class AuthorController {
     save() {
         var isNew = this.currentAuthor.id == null;
         if (isNew) {
-            this.currentAuthor = this.Author.save(this.currentAuthor);
-            this.authors.push(angular.copy(this.currentAuthor));
+            let savedAuthor = this.Author.save(this.currentAuthor);
+            savedAuthor.$promise.then(() => {
+                this.authors.push(savedAuthor);
+                this.cancel();
+            });
         } else {
-            this.currentAuthor = this.Author.update(this.currentAuthor);
-            utils.replaceById(this.authors, angular.copy(this.currentAuthor));
+            let updatedAuthor = this.Author.update(this.currentAuthor);
+            updatedAuthor.$promise.then(() => {
+                utils.replaceById(this.authors, updatedAuthor);
+                this.cancel();
+            });
         }
-        this.cancel();
     };
 
     edit(author) {
