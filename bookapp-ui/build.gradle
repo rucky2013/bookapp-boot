@@ -21,6 +21,7 @@ node {
     workDir = file("${project.buildDir}/nodejs")
 }
 
-build.dependsOn npmInstall
-check.dependsOn npmInstall
+npm_run_build.dependsOn npmInstall
+build.dependsOn npm_run_build
+check.dependsOn npm_run_build
 
