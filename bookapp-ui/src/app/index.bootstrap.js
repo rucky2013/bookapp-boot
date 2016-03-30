@@ -1,6 +1,6 @@
 'use strict';
 
-// index.html page to dist folder
+// favicon to target folder
 import '!!file-loader?name=[name].[ext]!../favicon.ico';
 
 // main App module
