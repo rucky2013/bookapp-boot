@@ -1,3 +1,5 @@
+'use strict';
+
 export default function (app) {
     app.factory('Book', bookFactory);
     function bookFactory ($resource) {

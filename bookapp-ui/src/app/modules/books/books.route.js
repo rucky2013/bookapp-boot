@@ -1,3 +1,5 @@
+'use strict';
+
 import booksTpl from './books.tpl.html';
 
 export default function routeConfig($stateProvider) {

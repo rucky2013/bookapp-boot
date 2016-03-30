@@ -1,3 +1,5 @@
+'use strict';
+
 import authorsTpl from './authors.tpl.html';
 
 export default function routeConfig($stateProvider) {

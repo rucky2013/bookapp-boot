@@ -1,3 +1,5 @@
+'use strict';
+
 var utils = {
     filterById(array, id) {
         return array.filter(function (object) {
