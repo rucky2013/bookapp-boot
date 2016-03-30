@@ -15,7 +15,7 @@ const App = angular.module(
     require("./index.routes").name,
 
     // modules
-    require("./modules/bookapp.module").name
+    require("./bookapp/bookapp.module").name
   ]
 );
 
