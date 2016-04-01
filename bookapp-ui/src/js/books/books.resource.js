@@ -1,8 +1,8 @@
 'use strict';
 
-export default function (app) {
-    app.factory('Book', bookFactory);
-    function bookFactory ($resource) {
+export default function (module) {
+    module.factory('Book', bookResource);
+    function bookResource ($resource) {
         'ngInject';
         return $resource('api/books/:bookId', {bookId: '@id'}, {
             'query': {

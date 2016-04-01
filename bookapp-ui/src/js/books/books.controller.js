@@ -1,6 +1,6 @@
 'use strict';
 
-import utils from '../bookapp.utils';
+import utils from '../app.utils';
 
 export default class BookController {
 
@@ -15,13 +15,13 @@ export default class BookController {
         this.authors = this.Author.query();
 
         this.currentBook = new this.Book();
-        this.currentBook.releasedate = new Date().toISOString();
+        this.currentBook.releasedate = new Date();
         this.showId = false;
     }
 
     cancel() {
         this.currentBook = new this.Book();
-        this.currentBook.releasedate = new Date().toISOString();
+        this.currentBook.releasedate = new Date();
     };
 
     save() {
@@ -49,7 +49,7 @@ export default class BookController {
 
     edit(book) {
         this.currentBook = angular.copy(book);
-        this.currentBook.releasedate = new Date(book.releasedate).toISOString();
+        this.currentBook.releasedate = new Date(book.releasedate);
         this.currentBook.author = utils.filterById(this.authors, book.author.id)._links.self.href;
     };
 

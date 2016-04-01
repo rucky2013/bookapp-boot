@@ -2,7 +2,7 @@
 
 var utils = {
     filterById(array, id) {
-        return array.filter(function (object) {
+        return array.filter(object => {
             return object.id == id;
         })[0];
     },

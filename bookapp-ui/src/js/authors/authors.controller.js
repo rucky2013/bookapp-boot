@@ -1,6 +1,6 @@
 'use strict';
 
-import utils from '../bookapp.utils';
+import utils from '../app.utils';
 
 export default class AuthorController {
 

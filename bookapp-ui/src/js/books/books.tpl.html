@@ -10,7 +10,7 @@
                 <div class=" form-group col-md-6">
                     <label for="releasedate">Release date</label>
                     <div class="input-group">
-                        <input id="releasedate" type="text" ng-model="bookCtrl.currentBook.releasedate" datepicker-popup="dd.MM.yyyy" is-open="bookCtrl.opened" class="form-control"/>
+                        <input id="releasedate" type="text" ng-model="bookCtrl.currentBook.releasedate" uib-datepicker-popup="dd.MM.yyyy" is-open="bookCtrl.opened" class="form-control"/>
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="bookCtrl.openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i>&nbsp;</button>
                         </span>

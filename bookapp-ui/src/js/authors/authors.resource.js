@@ -1,8 +1,8 @@
 'use strict';
 
-export default function (app) {
-    app.factory('Author', authorFactory);
-    function authorFactory ($resource) {
+export default function (module) {
+    module.factory('Author', authorResource);
+    function authorResource ($resource) {
         'ngInject';
         return $resource('api/authors/:authorId', {authorId: '@id'}, {
             'update': {method: 'PUT'},
